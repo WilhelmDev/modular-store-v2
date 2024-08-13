@@ -38,14 +38,10 @@ const SupabaseProvider: React.FC<{ children: React.ReactNode }> = ({ children })
   }
 
   const checkUser = async () => {
-    console.log("sdfdsd")
     const checkUser = await supabase.auth.getSession()
     if (checkUser.error) {
       console.log(checkUser.error)
       throw checkUser.error
-    } else {
-      // router.push(ROUTES.DASHBOARD)
-      console.log(checkUser)
     }
   }
 
