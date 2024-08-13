@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { PrimeReactProvider } from 'primereact/api';
 import "./globals.css";
+import SupabaseProvider from "@/context/supabase";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,9 +17,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <PrimeReactProvider>
-        <body className={inter.className}>{children}</body>
+        <SupabaseProvider>
+          <body className={inter.className}>{children}</body>
+        </SupabaseProvider>
       </PrimeReactProvider>
     </html>
   );
